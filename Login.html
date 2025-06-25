@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Login</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #4361ee, #4cc9f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      background: #4361ee;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #3a56d4;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>School Login</h2>
+    
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" placeholder="Enter your first name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" placeholder="Enter your last name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="Enter your city" required />
+    </div>
+
+    <div class="form-group">
+      <label for="school">School Name</label>
+      <input type="text" id="school" placeholder="Enter your school name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" id="id" placeholder="Enter your school ID" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" required />
+    </div>
+
+    <div class="form-group">
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="Confirm password" required />
+      <div class="error" id="password-error">Passwords do not match.</div>
+    </div>
+
+    <div class="error" id="login-error">Incorrect Password. Please communicate with your school officer.</div>
+
+    <button onclick="validateLogin()">Log In</button>
+
+    <div class="footer-note">
+      Your data is safe and secure.
+    </div>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+      const passwordError = document.getElementById("password-error");
+      const loginError = document.getElementById("login-error");
+
+      // Reset errors
+      passwordError.style.display = "none";
+      loginError.style.display = "none";
+
+      // Check password match
+      if (password !== confirm) {
+        passwordError.style.display = "block";
+        return;
+      }
+
+      // Simulated password check
+      if (password !== "1234") {
+        loginError.style.display = "block";
+        return;
+      }
+
+      alert("Login successful!"); // Replace this with your real login process
+    }
+  </script>
+
+</body>
+  </html>
